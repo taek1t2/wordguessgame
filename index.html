@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <title>Guess who I am?</title>
 
-    <img src="/Users/taekim/Desktop/code/Repository/wordguessgame/assets/images/htitle.jpg" alt="HangMan" class= "center" width= "600px" height= "125px" />
+    <!-- <img src="/Users/taekim/Desktop/code/Repository/wordguessgame/assets/images/htitle.jpg" alt="HangMan" class= "center" width= "600px" height= "125px" /> -->
 
-    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
 
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700" rel="stylesheet">
 
@@ -21,27 +21,29 @@
 
         <div class="rows">
             
-            <div class="col-md-3">
-
+            <div class="col-md-6">
+                
                 <h3>Press any letter keys to get started.</h3>
 
-                <h3>What is this image?</h3>
-                <!-- //create variable for the image  -->
-            
                 <h3>What am I?</h3>
-                <!-- underscore image to type in -->
-                
-                <div id=numGuess>
-                    <h3>Number of Guesses Remaining</h3>
-                </div>
-                <div id="numberOfGamesWon"></div>
-                <div id="numberOfGamesLost"></div>
-                <div id="wrongGuess">
-                    <h3>Letters already guessed</h3>
+
+                <div id="Game">
+                    <div class="wordToGuess">
+                            <h3 id="numBlanks">_ _ _ _ _</h3>
+                        </div>
+
+                    <div class="guessRemain">
+                        <h3>Number of Guesses Remaining: <span id= "numGuess">9</span></h3>
+                        
+                    </div>
+
+                    <div class="wrong">
+                        <h3>Wrong Letters Guessed: <span id="wrongGuess">0</span></h3>
+                    </div>
                 </div>
             </div>
 
-            <div class="col-md-3" class="clearfix::after">
+            <div class="col-md-6" id="images" class="clearfix::after">
 
                     <img src= "/Users/taekim/Desktop/code/Repository/wordguessgame/assets/images/skull.jpg" width="250px" height="200px" id="skull" />
 
@@ -53,56 +55,9 @@
         </div>
     </div>
 
-   <script type="text/javascript">
-
-        //How to create a function or variable for the letters to show up on the screen.
-
-        //Create a function
-        var wordOptions = ["skull", "witch", "fangs"];
-        var selectedWord = wordOptions[Math.floor(Math.random() * wordOptions.length)];
-        var correctWordArray;
-        var guessWrong;
-        var numguess;
-
-        //global variables
-        //functions
-
-        //call function
-       
-       var correctWordArray = selectedWord.split("")
-            console.log(correctWordArray)
-
-        var result = [];
-        for (var i = 0; i < correctWordArray.length; i++) {
-            result.push('_');
-        }
-
-        console.log(result)
+    <script type= "text/javascript" src="assets/javascript/game.js">
     
-        document.onkeypress = function(event) {
-            var userGuess = event.key; 
-            console.log(userGuess)
-            //create an array.
-
-            // console.log(randomNu)
-
-            
-            //Randomly Press a letter to start guessing:
-            function rightGuess() {
-                for (var i=0; i< wordRight.length; i++) {
-                    if ((userGuess === "s", "k", "u", "l", "w", "i", "t", "c", "h","f", "a", "n", "g", "s")) {
-                    wins++;
-                    }   ;
-                }   
-
-            }
-
-        } 
-
-   
-   </script>
-
-    
+    </script>
 
 </body>
 
