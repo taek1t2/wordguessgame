@@ -1,21 +1,30 @@
 //Global Variable
-var wordOptions = ["fangs", "witch", "skull"];
+var wordOptions = ["fangs", "witch", "skull", "pumpkin"];
 var selectedWord = "";
-var lettersinWord = [];
-var numBlanks = 0;
-var blanksAndSuccesses = [];
-var wrongLetters = [];
+var lettersChosen = [];
+var Blanks = 0;
+var blanksSuccess = [];
+var rightGuess = [];
+var wrongGuess = [];
 
 //game counters
-var winCount = 0;
-var lossCount = 0;
+var wins = 0;
+var losses = 0;
 var guessRemain = 9;
 
 //arrays and variable for holding data
 function startGame () {
-    selectedWord = wordOptions[Math.floor(Math.random() * wordOptions.length)];
+    
+    // guessRemain = 9;
+    // selectedWord = wordOptions[Math.floor(Math.random() * wordOptions.length)];
+    // lettersChosen = selectedWord.split("_");
+    // Blanks = lettersChosen.length;
+    // console.log(letterChosen);
+
+
+    // selectedWord = wordOptions[Math.floor(Math.random() * wordOptions.length)];
     lettersinWord = selectedWord.split("");
-    numBlanks = lettersinWord.length;
+    Blanks = lettersinWord.length;
 
     // Reset
     guessesRemain =10;
@@ -23,18 +32,20 @@ function startGame () {
     blanksAndSuccesses = [];
 
     //populate blanks and successes with right number of blanks.
-    for (var i=0; i<numBlanks; i++) {
+    for (var i=0; i<Blanks; i++) {
         blanksAndSuccesses.push("_");
     }
 
     // Change HTML to reflect and round conditions
-    document.getElementById("wordToGuess").innerHTML = blanksAndSuccesses.join("  ");
-    document.getElementById("numGuess").innerHTML = guessRemain;
-    document.getElementById("winCount").innerHTML = winCount;
-    document.getElementById("lossCount").innerHTML = lossCount;
+    document.querySelector("wordToGuess").innerHTML = blanksAndSuccesses.join("  ");
+    document.querySelector("rightGuess").innerHTML = guessRemain;
+    document.querySelector("wins").innerHTML = wins;
+    document.querySelector("losses").innerHTML = losses;
 
     //testing and debugging
     console.log(selectedWord);
     console.log(lettersinWord);
-    console.log(numBlanks);
+    console.log(Blanks);
 }
+
+startGame ();
