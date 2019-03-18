@@ -4,7 +4,6 @@ var selectedWord = "";
 var lettersChosen = [];
 var Blanks = 0;
 var blanksSuccess = [];
-var rightGuess = [];
 var wrongGuess = [];
 
 //game counters
@@ -12,40 +11,100 @@ var wins = 0;
 var losses = 0;
 var guessRemain = 9;
 
-//arrays and variable for holding data
+//Starting the game.
 function startGame () {
     
-    // guessRemain = 9;
-    // selectedWord = wordOptions[Math.floor(Math.random() * wordOptions.length)];
-    // lettersChosen = selectedWord.split("_");
-    // Blanks = lettersChosen.length;
-    // console.log(letterChosen);
+    guessRemain = 9;
+    selectedWord = wordOptions[Math.floor(Math.random() * wordOptions.length)];
+    lettersChosen = selectedWord.split(" ");
+    Blanks = lettersChosen.length;
+    // console.log(selectedWord);
 
+    blanksSuccess = [];
+    wrongGuess = [];
 
-    // selectedWord = wordOptions[Math.floor(Math.random() * wordOptions.length)];
-    lettersinWord = selectedWord.split("");
-    Blanks = lettersinWord.length;
+    //push the letters into the blanks if the user guessed it right.
+    for (var i=0; i< Blanks; i++) {
+        blanksSuccess.push("_");
+    }
+    // console.log(blanksSuccess);
 
-    // Reset
-    guessesRemain =10;
-    wrongLetters = [];
-    blanksAndSuccesses = [];
+    document.getElementById("numGuess").innerHTML = guessRemain;
 
-    //populate blanks and successes with right number of blanks.
-    for (var i=0; i<Blanks; i++) {
-        blanksAndSuccesses.push("_");
+    document.getElementById("blanksSuccess").innerHTML = blanksSuccess.join(" ");
+
+    document.getElementById("wrongGuess").innerHTML = wrongGuess.join(" ");
+    
+}
+
+//for the letters to show in the blanks.
+function checkLetters(letters) {
+    //boolean will be toggled based on whether or not the user is finding a letter in the word
+    var lettersChosen = false;
+
+    //lettersChosen is equal to an array. Using the FOR loop to check if a letter exists in this array.
+    for (var i=0; i < Blanks; i++) {
+        if (selectedWord[i] === letters) {
+            lettersChosen = true;
+        }
     }
 
-    // Change HTML to reflect and round conditions
-    document.querySelector("wordToGuess").innerHTML = blanksAndSuccesses.join("  ");
-    document.querySelector("rightGuess").innerHTML = guessRemain;
-    document.querySelector("wins").innerHTML = wins;
-    document.querySelector("losses").innerHTML = losses;
+    //if the letter exists in any of wordOption, it will show into console log.
+    if (lettersChosen) {
+        //Loop the wordOptions
+        for (var j=0; j<Blanks; j++) {
+            if (selectedWord[j] === letters) {
+                blanksSuccess[j] = letters;
+            }
+        }
 
-    //testing and debugging
-    console.log(selectedWord);
-    console.log(lettersinWord);
-    console.log(Blanks);
+        //testing loop
+        // console.log(blanksSuccess);
+
+    } else {
+        wrongGuess.push(letters);
+        //subtract guesses
+        guessRemain--;
+    }
+
+}
+
+//Need add another function for images to pop up.
+function imgShown () {
+    
+}
+
+function roundComplete () {
+    console.log("Wins: " + wins + " | Losses: " + losses + " | Guess Remain: " + guessRemain);
+
+    document.getElementById("numGuess").innerHTML = guessRemain;
+
+    document.querySelector(".Blanks").innerHTML = blanksSuccess.join(" ");
+
+    document.getElementById("wrongGuess").innerHTML = wrongGuess.join(" ");
+
+    if (lettersChosen.toString() === blanksSuccess.toString()) {
+        wins++;
+        alert("Winner!!!");
+
+        document.getElementById("wins").innerHTML = wins;
+        startGame();
+    } else if (guessRemain === 0) {
+        
+        losses++;
+        alert("You lose!!!");
+
+        document.getElementById("losses").innerHTML = losses;
+
+        startGame();
+    }
+
 }
 
 startGame ();
+
+document.onkeyup = function(event) {
+    var letterGuessed = String.fromCharCode(event.which).toLowerCase();
+    checkLetters(letterGuessed);
+    roundComplete();
+}

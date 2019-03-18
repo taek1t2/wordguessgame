@@ -7,11 +7,10 @@
 
     <img src="/Users/taekim/Desktop/code/Repository/wordguessgame/assets/images/htitle.jpg" alt="HangMan" class= "center" width= "600px" height= "125px" />
 
-    <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
+    <link rel="stylesheet" href="assets/css/style.css">
 
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700" rel="stylesheet">
 
-    <script type="text/javascript" src="assets/javascript/game.js"></script>
 
 </head>
 
@@ -30,25 +29,25 @@
                 <h3>What am I?</h3>
 
                 <div id="Game">
-                    <div class="wordToGuess">
-                        <h3 id="Blanks">_ _ _ _ _ _ _</h3>
+                    <div class="Blanks">
+                        <h3 id="blanksSuccess">_ _ _ _ _ _ _</h3>
                     </div>
 
                     <div class="guessRemain">
-                        <h3>Number of Guesses Remaining: <span id= "rightGuess"></span></h3>
+                        <h3>Number of Guesses Remaining: <span id= "numGuess"></span></h3>
                         
                     </div>
 
                     <div class="wrong">
-                        <h3>Wrong Letters Guessed: <span id="wrongGuess"></span></h3>
+                        <h3>Wrong Letters: <span id="wrongGuess"></span></h3>
                     </div>
 
-                    <div class="guessRemain">
+                    <div class="theWins">
                         <h3>Wins: <span id="wins"></span></h3>
                         
                     </div>
 
-                    <div class="wrong">
+                    <div class="theLosses">
                         <h3>Losses: <span id="losses"></span></h3>
                     </div>
                 </div>
@@ -66,7 +65,7 @@
         </div>
     </div>
 
-    
+    <script type="text/javascript" src="assets/javascript/game.js"></script>
 
 </body>
 
