@@ -1,35 +1,48 @@
-.clearfix::after {
+/* the 'comment out' section would be used later for VS. 2 */
+/* .clearfix::after {
     clear: both;
     content: "";
     display: block;
-}
+} */
 
 body {
     background: black;
     color: white;
     font-family: 'Amatic SC', cursive;
     font-size: 24px;
+    text-align: center;
 }
 
-.center {
+h1 {
+    font-size: 75px;
+    text-align: center;
+}
+
+/* #outerBox {
+    border: white 10px dashed;
+    margin: 0 auto;
+    width: 65%;
+} */
+
+/* .center {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 50%;
-}
+} */
 
 .rows {
-    margin-top: 50px;
-    margin-right: 415px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
 }
 
-
-.col-md-3 {
+.col-lg-8 {
     padding: 25px;
     width: 225px;
-    height: 750px;
-    border: 10px white;
-    border-style: dashed;
+    height: 350px;
+    border: 10px white dashed;
     float: right;
 }
 

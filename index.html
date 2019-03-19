@@ -3,9 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Guess who I am?</title>
 
-    <img src="/Users/taekim/Desktop/code/Repository/wordguessgame/assets/images/htitle.jpg" alt="HangMan" class= "center" width= "600px" height= "125px" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Word Guess Game</title>
+
+    <!--Version 2: used as a title for the next game-->
+    <!-- <img src="/Users/taekim/Desktop/code/Repository/wordguessgame/assets/images/htitle.jpg" alt="HangMan" class= "center" width= "600px" height= "125px" /> -->
 
     <link rel="stylesheet" href="assets/css/style.css">
 
@@ -16,52 +20,59 @@
 
 <body>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--3/19/19 Next update: version 2 of this word guess game into Hangman-->
+    
+    <div id="alert"></div>
 
-    <div id="container">
+    <div class="container">
+
+        <h1 id="mainTitle">Word Guess Game</h1>
 
         <div class="rows">
-            
-            <div class="col-md-6">
-                
-                <h3>Press any letter keys to get started.</h3>
-
-                <h3>What am I?</h3>
-
+            <div class="col-lg-8" id="col2">
                 <div id="Game">
                     <div class="Blanks">
-                        <h3 id="blanksSuccess">_ _ _ _ _ _ _</h3>
+                        <p id="blanksSuccess">_ _ _ _ _</p>
                     </div>
 
                     <div class="guessRemain">
-                        <h3>Number of Guesses Remaining: <span id= "numGuess"></span></h3>
-                        
+                        <p>Number of Guesses Remaining: <span id="numGuess"></span></p>                            
                     </div>
 
                     <div class="wrong">
-                        <h3>Wrong Letters: <span id="wrongGuess"></span></h3>
+                        <p>Wrong Letters: <span id="wrongGuess"></span></p>
                     </div>
 
                     <div class="theWins">
-                        <h3>Wins: <span id="wins"></span></h3>
-                        
+                        <p>Wins: <span id="wins"></span></p>
                     </div>
 
                     <div class="theLosses">
-                        <h3>Losses: <span id="losses"></span></h3>
+                        <p>Losses: <span id="losses"></span></p>
                     </div>
                 </div>
+
             </div>
-
-            <div class="col-md-6" id="images" class="clearfix::after">
-
-                <img src= "/Users/taekim/Desktop/code/Repository/wordguessgame/assets/images/skull.jpg" width="250px" height="200px" id="skull" />
-
-                <img src= "/Users/taekim/Desktop/code/Repository/wordguessgame/assets/images/witch.jpg" width="250px" height="200px" id="witch" />
-
-                <img src="/Users/taekim/Desktop/code/Repository/wordguessgame/assets/images/fangsd2.jpg" width="250px" height="200px" id="fangs" />
             
+            <div class="col-lg-8" id="col1">   
+                <h2>It's Halloween!</h2>
+                <h4>What am I thinking? Type a letter to start</h4>
             </div>
+
+            
+
+            <!--Version 2: Images are added for the hangman game for the next project.-->
+            <!-- <div class="col-md-6" id="images" class="clearfix::after">
+                <div class="halloImage">
+
+                    <img id="skull" src= "/Users/taekim/Desktop/code/Repository/wordguessgame/assets/images/skull.jpg" width="250px" height="200px" id="skull" />
+
+                    <img id="witch" src= "/Users/taekim/Desktop/code/Repository/wordguessgame/assets/images/witch.jpg" width="250px" height="200px" id="witch" />
+
+                    <img id="fangs" src="/Users/taekim/Desktop/code/Repository/wordguessgame/assets/images/fangsd2.jpg" width="250px" height="200px" id="fangs" />
+                
+                </div>
+            </div> -->
         </div>
     </div>
 

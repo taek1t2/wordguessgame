@@ -1,5 +1,5 @@
 //Global Variable
-var wordOptions = ["fangs", "witch", "skull", "pumpkin"];
+var wordOptions = ["fangs", "witch", "skull", "pumpkin", "skeleton", "candy", "werewolves"];
 var selectedWord = "";
 var lettersChosen = [];
 var Blanks = 0;
@@ -11,14 +11,21 @@ var wins = 0;
 var losses = 0;
 var guessRemain = 9;
 
+//Version 2: building an alert
+// alert(Click 'enter' to play);
+
 //Starting the game.
 function startGame () {
     
     guessRemain = 9;
     selectedWord = wordOptions[Math.floor(Math.random() * wordOptions.length)];
-    lettersChosen = selectedWord.split(" ");
+
+    // *****lettersChosen is the main variable that needs to be used in multiple functions.****
+    lettersChosen = selectedWord.split("");
     Blanks = lettersChosen.length;
-    // console.log(selectedWord);
+
+    //testing if the word selection works.
+    console.log(lettersChosen);
 
     blanksSuccess = [];
     wrongGuess = [];
@@ -27,7 +34,7 @@ function startGame () {
     for (var i=0; i< Blanks; i++) {
         blanksSuccess.push("_");
     }
-    // console.log(blanksSuccess);
+    console.log(blanksSuccess);
 
     document.getElementById("numGuess").innerHTML = guessRemain;
 
@@ -59,7 +66,7 @@ function checkLetters(letters) {
         }
 
         //testing loop
-        // console.log(blanksSuccess);
+        console.log(blanksSuccess);
 
     } else {
         wrongGuess.push(letters);
@@ -69,35 +76,47 @@ function checkLetters(letters) {
 
 }
 
-//Need add another function for images to pop up.
-function imgShown () {
-    
-}
+//Version 2: Need add another function for images to pop up.
+// function imgShown () {
+//     var selectedWord;
+//     var hiddenImage = [];
+//     var selectImage = selectedWord[Math.floor(Math.random() * selectedWord.length)];
+
+//     //for loop to bring one image at a time.
+
+// }
 
 function roundComplete () {
     console.log("Wins: " + wins + " | Losses: " + losses + " | Guess Remain: " + guessRemain);
 
     document.getElementById("numGuess").innerHTML = guessRemain;
 
-    document.querySelector(".Blanks").innerHTML = blanksSuccess.join(" ");
+    document.getElementById("blanksSuccess").innerHTML = blanksSuccess.join(" ");
 
     document.getElementById("wrongGuess").innerHTML = wrongGuess.join(" ");
 
     if (lettersChosen.toString() === blanksSuccess.toString()) {
+        
         wins++;
+
         alert("Winner!!!");
 
         document.getElementById("wins").innerHTML = wins;
+
         startGame();
+
     } else if (guessRemain === 0) {
         
         losses++;
+
         alert("You lose!!!");
 
         document.getElementById("losses").innerHTML = losses;
 
         startGame();
     }
+
+    //Version 2: add an eventlistener for the images pops up after wins or remainGuess goes 0. Game starts over.
 
 }
 
